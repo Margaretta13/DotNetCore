@@ -1,0 +1,23 @@
+#Visual Studio
+obj
+bin
+*.user
+*.suo
+/packages/*
+!packages/repositories.config
+/Backup/*
+UpgradeLog.htm
+
+# Paket
+.paket/paket.exe
+
+#Misc
+*.orig
+.DS_Store
+
+
+build/*
+package/*
+
+.vs
+
