@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BethanyPieShop.Models;
+using BethanyPieShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,7 +23,11 @@ namespace BethanyPieShop.Controllers
 
         public ViewResult List()
         {
-            return View(_pieRepository.Pies);
+            var pieListVm = new PieListViewModel();
+
+            pieListVm.Pies = _pieRepository.Pies;
+            pieListVm.CurrentCategory = "Cheese Cake";
+            return View(pieListVm);
         }
        
     }

@@ -1,7 +1,12 @@
-﻿
-@{
-    ViewData["Title"] = "List";
-}
+﻿@model PieListViewModel
 
-<h2>List</h2>
+    <h1>@Model.CurrentCategory</h1>
 
+    @foreach (var pie in Model.Pies)
+    {
+        <div>
+            <h2>@pie.Name</h2>
+            <h3>@pie.Price.ToString("C")</h3>
+            <h4>@pie.Category.CategoryName</h4>
+        </div>
+    }
