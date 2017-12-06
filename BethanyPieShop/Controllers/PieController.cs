@@ -19,10 +19,11 @@ namespace BethanyPieShop.Controllers
             _categoryRepository = categoryRepository;
             _pieRepository = pieRepository;
         }
-        // GET: /<controller>/
-        public IActionResult Index()
+
+        public ViewResult List()
         {
-            return View();
+            return View(_pieRepository.Pies);
         }
+       
     }
 }
