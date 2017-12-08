@@ -14,12 +14,12 @@ namespace BethanyPieShop
 {
     public class Startup
     {
-        private IConfigurationRoot _configurationRoot;
+        private readonly IConfigurationRoot _configurationRoot;
         public Startup(IHostingEnvironment hostingEnvironment)
         {
             _configurationRoot = new ConfigurationBuilder()
                 .SetBasePath(hostingEnvironment.ContentRootPath).
-                AddJsonFile($"appsettings.{hostingEnvironment.EnvironmentName}.json",true).
+                AddJsonFile($"appsettings.json",true).
                 Build();
         }
 
