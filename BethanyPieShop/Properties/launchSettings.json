@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "launchUrl": "http://localhost:57804/pie/list",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     },
     "BethanyPieShop": {
