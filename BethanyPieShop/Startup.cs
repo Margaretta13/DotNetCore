@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BethanyPieShop.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,9 +18,13 @@ namespace BethanyPieShop
         private readonly IConfigurationRoot _configurationRoot;
         public Startup(IHostingEnvironment hostingEnvironment)
         {
+            var jsonFile = hostingEnvironment.EnvironmentName == "Development"
+                ? "appsettings.json"
+                : "appsettings.production.json";
             _configurationRoot = new ConfigurationBuilder()
                 .SetBasePath(hostingEnvironment.ContentRootPath).
-                AddJsonFile($"appsettings.json",true).
+                //AddJsonFile($"appsettings."+ hostingEnvironment.EnvironmentName+ ".json",true).
+                AddJsonFile(jsonFile,true).
                 Build();
         }
 
