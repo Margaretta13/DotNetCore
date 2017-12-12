@@ -11,7 +11,7 @@ namespace BethanyPieShop.Models
     {
         private static Dictionary<string, Category> categories;
 
-        public static void Seed(IApplicationBuilder applicationBuilder, AppDbContext context)
+        public static void Seed(AppDbContext context)
         {
             if (!context.Categories.Any())
             {

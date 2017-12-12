@@ -40,7 +40,7 @@ namespace BethanyPieShop
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, AppDbContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -53,8 +53,6 @@ namespace BethanyPieShop
             }
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
-            
-            DbInitializer.Seed(app, context);
         }
     }
 }
