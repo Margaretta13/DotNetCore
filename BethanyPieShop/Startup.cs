@@ -27,7 +27,7 @@ namespace BethanyPieShop
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddEntityFrameworkSqlServer().AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(_configurationRoot.GetConnectionString("DefaultConnection")));
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IPieRepository, PieRepository>();
@@ -48,6 +48,8 @@ namespace BethanyPieShop
             }
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+            
+            DbInitializer.Seed(app);
         }
     }
 }
